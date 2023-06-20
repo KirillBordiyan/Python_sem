@@ -41,10 +41,12 @@ def task11():
     
     a = int(input())
     
-    if a <= 0:
+    if a < 0:
         return -1
-    elif a == 0 or a == 1:
-        return f"{a+1} and 3"
+    elif a == 0:
+        return "1"
+    elif a == 1:
+        return "2 and 3"
     
     while temp <= a:
         temp = f0 + f1
@@ -54,11 +56,53 @@ def task11():
         if temp == a:
             return count
     else:
-        return "not include fed"
+        return "not include feb"
 
         
 # print(task11())
         
     
+# Задача №13.
+# Уставшие от необычно теплой зимы, жители решили узнать,
+# действительно ли это самая длинная оттепель за всю историю
+# наблюдений за погодой. Они обратились к синоптикам, а те, в
+# свою очередь, занялись исследованиями статистики за
+# прошлые годы. Их интересует, сколько дней длилась самая
+# длинная оттепель. Оттепелью они называют период, в
+# который среднесуточная температура ежедневно превышала
+# 0 градусов Цельсия. Напишите программу, помогающую
+# синоптикам в работе.
+# Пользователь вводит число N – общее количество
+# рассматриваемых дней (1 ≤ N ≤ 100). В следующих строках
+# располагается N целых чисел.
+# Каждое число – среднесуточная температура в
+# соответствующий день. Температуры – целые числа и лежат в
+# диапазоне от –50 до 50
+# Input: 6 -> -20 30 -40 50 10 -10
+# Output: 2
     
+def task13():
+    n = int(input("need: "))
+    if n > 100:
+        n = int(input("input less than 100: "))
     
+    temper = []
+    while len(temper) < n:
+        addTemp = int(input(f"input {len(temper)+1} day temperature: "))
+        if addTemp not in range(-50, 51):
+            addTemp = int(input("this can't be: "))
+        temper.append(addTemp)
+
+    startWarmPerion = 0
+    warmPeriod = 0
+    for currentTemperature in temper:
+        if currentTemperature > 0:
+            startWarmPerion += 1
+            if warmPeriod < startWarmPerion:
+                warmPeriod = startWarmPerion
+        else:
+            startWarmPerion = 0
+                        
+    return warmPeriod
+    
+print(task13())
