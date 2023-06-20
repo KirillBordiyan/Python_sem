@@ -93,16 +93,74 @@ def task13():
             addTemp = int(input("this can't be: "))
         temper.append(addTemp)
 
-    startWarmPerion = 0
+    startWarmPeriod = 0
     warmPeriod = 0
     for currentTemperature in temper:
         if currentTemperature > 0:
-            startWarmPerion += 1
-            if warmPeriod < startWarmPerion:
-                warmPeriod = startWarmPerion
+            startWarmPeriod += 1
+            if warmPeriod < startWarmPeriod:
+                warmPeriod = startWarmPeriod
         else:
-            startWarmPerion = 0
+            startWarmPeriod = 0
                         
     return warmPeriod
     
-print(task13())
+# print(task13())
+
+
+def task13var2():
+
+    days = int(input("need: "))
+    if days > 100:
+        days = int(input("input less than 100: "))
+    
+    
+    startWarmPeriod = 0
+    warmPeriod = 0
+    i = 0
+    for i in range(0,days):
+        averageDayTemp = int(input(f"input {i+1} day temperature: "))
+        if averageDayTemp not in range(-50, 51):
+                averageDayTemp = int(input("this can't be: "))
+                
+        if averageDayTemp > 0:
+            startWarmPeriod +=1
+            if warmPeriod < startWarmPeriod:
+                    warmPeriod = startWarmPeriod
+        else:
+            startWarmPeriod = 0
+            
+        i += 1
+        
+    return warmPeriod
+
+
+print(task13var2())
+
+
+
+
+
+
+
+
+
+# 15. Иван Васильевич пришел на рынок и решил
+# купить два арбуза: один для себя, а другой для тещи.
+# Понятно, что для себя нужно выбрать арбуз
+# потяжелей, а для тещи полегче. Но вот незадача:
+# арбузов слишком много и он не знает как же выбрать
+# самый легкий и самый тяжелый арбуз? Помогите ему!
+# Пользователь вводит одно число N – количество
+# арбузов. Вторая строка содержит N чисел,
+# записанных на новой строчке каждое. Здесь каждое
+# число – это масса соответствующего арбуза
+# Input: 5 -> 5 1 6 5 9
+# Output: 1 9
+
+def task15():
+    n = int(input("watermelons: "))
+    if n <= 0:
+        n = int(input("input real number watermelons: "))
+        
+    
