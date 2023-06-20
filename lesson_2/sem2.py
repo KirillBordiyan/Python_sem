@@ -117,7 +117,7 @@ def task13var2():
     
     startWarmPeriod = 0
     warmPeriod = 0
-    i = 0
+
     for i in range(0,days):
         averageDayTemp = int(input(f"input {i+1} day temperature: "))
         if averageDayTemp not in range(-50, 51):
@@ -135,12 +135,7 @@ def task13var2():
     return warmPeriod
 
 
-print(task13var2())
-
-
-
-
-
+# print(task13var2())
 
 
 
@@ -159,8 +154,24 @@ print(task13var2())
 # Output: 1 9
 
 def task15():
-    n = int(input("watermelons: "))
-    if n <= 0:
-        n = int(input("input real number watermelons: "))
-        
+    quantity = int(input("watermelons: "))
+    if quantity <= 0:
+        quantity = int(input("input real number watermelons: "))
     
+    maxWeightWatermelon = 1
+    minWeightWatermelon = 1000
+    
+    for watermeloRunningNumber in range(0,quantity):
+        currentWeight = int(input(f"weight {watermeloRunningNumber+1}: "))
+        if currentWeight <= 0:
+            currentWeight = int(input("again pls: "))
+
+        if currentWeight > maxWeightWatermelon:
+            maxWeightWatermelon = currentWeight
+        if currentWeight < minWeightWatermelon:
+            minWeightWatermelon = currentWeight
+            
+    return f"max {maxWeightWatermelon}, min {minWeightWatermelon}"
+
+# print(task15())
+        
