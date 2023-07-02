@@ -75,25 +75,16 @@ def task35(n, delit = 2):
         return True
     else:
         if n % delit != 0:
-            delit += 1
-            return task35(n, delit)
+            return task35(n, delit+1)
         return False
         
-print(task35(int(input("N: ")))) 
-    
-    
-    
+# print(task35(int(input("N: ")))) 
+# проверить через квадратные корни
     
     
 
-
-
-
-
-# Задача №37. Решение в группах
-# 15 минут
-# Дано натуральное число N и
-# последовательность из N элементов.
+# Задача №37. 
+# Дано натуральное число N и последовательность из N элементов.
 # Требуется вывести эту последовательность в
 # обратном порядке.
 # Примечание. В программе запрещается
@@ -101,16 +92,28 @@ print(task35(int(input("N: "))))
 # (даже для ввода и вывода).
 # Input: 2 -> 3 4
 # Output: 4 3
+# но никто не сказал, что нельзя преобразовывать :)
+
+def task37():
+    long = int(input("len: "))
+    n = ''.join(input().split())
+    print(n)
+    if long != len(n):
+        return "Nope"
+    return n[::-1]
+
+# print(task37())
 
 
-# from random import randint
-# n = 5
-# li1 = [randint(1, 5) for i in range(n)]
-# print(f'Input: {n} ->', *li1)
-# li2 = li1[::-1]
-# print(*li2)
 
 
-# D = input()
+long = int(input("len: "))
+args = "".join(input("args: ").split())
+new = str()
+def task37_2(args, long, newArgs):
+    if len(args) == long and long >= 1:
+        newArgs += args[long-1]
+        return task37_2(args[0:long-1], long-1, newArgs)
+    return newArgs
 
-# print(D[::-1])
+# print(task37_2(args, long, new))
