@@ -38,7 +38,7 @@ def task31(n):
 
 def task33():
     n = int(input("N-оценок в журнале: "))
-    marks = [random.randint(1,5) for _ in range(n)]
+    marks = [random.randint(1,5) for _ in range(n)] #[2, 4, 3, 1, 1, 4, 5, 2, 4, 3]
     print(marks)
     
     markMax = max(*marks)
@@ -49,55 +49,10 @@ def task33():
         if marks[i] == markMax:
             marks[i] = markMin
         
-    print(marks)
+    print(marks)                                    #[2, 4, 3, 1, 1, 4, 1, 2, 4, 3]
     
     
-task33()
-
-
-
-# from random import randint
-# n = 5
-# li1 = [randint(1, 5) for i in range(n)]
-# print(f'Input: {n} ->', *li1)
-# li2 = sorted(li1)
-
-# def merge_two_lists(a, b):
-#     c = []
-#     i = j = 0
-#     while i < len(a) and j < len(b):
-#         if a[i] < b[j]:
-#             c.append(a[i])
-#             i += 1
-#         else:
-#             c.append(b[j])
-#             j += 1
-#     if i < len(a):
-#         c += a[i:]
-#     if j < len(b):
-#         c += b[j:]
-#     return c
-
-
-# def merge_sort(li):
-#     if len(li) == 1:
-#         return li
-#     middle = len(li) // 2
-#     left = merge_sort(li[:middle])
-#     right = merge_sort(li[middle:])
-#     return merge_two_lists(left, right)
-
-
-# for i in range(len(li1)):
-#     if li1[i] == li2[len(li1)-1]:
-#         li1[i] = li2[0]
-# print('Output:', *li1)
-
-
-
-
-
-
+# task33()
 
 
 
@@ -113,10 +68,18 @@ task33()
 # Output: yes 
 
 
-# def task35(n):
-#     if n == 1:
-#         return False
-#     if
+def task35(n, delit = 2):
+    if n == 1:
+        return False
+    if n == delit:
+        return True
+    else:
+        if n % delit != 0:
+            delit += 1
+            return task35(n, delit)
+        return False
+        
+print(task35(int(input("N: ")))) 
     
     
     
