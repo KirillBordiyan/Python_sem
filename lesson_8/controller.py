@@ -11,7 +11,7 @@ def main():
                 id = input_id("id: ")
                 name = input_name("Имя пользователя: ")
                 date = input_date_birth("добавить дату ДД.ММ.ГГГГ: ")
-                tel = input_tel("добавить телефон")
+                tel = input_tel("добавить телефон: ")
                 write_all(id, name, date, tel)
                 print("записано")
             case 2:
@@ -21,8 +21,15 @@ def main():
             case 3: 
                 show_all()
                 id = input_id("id для замены: ")
-                change(id)
-            # case 4:
+                new_name = input_name("Заменить имя пользователя: ")
+                new_date = input_date_birth("обновить дату ДД.ММ.ГГГГ: ")
+                new_tel = input_tel("обновить телефон: ")
+                change_data(id, new_name, new_date, new_tel)
+                sort()
+            case 4:
+                show_all()
+                delete_id = input_id("id для удаления: ")
+                delete_data(delete_id)
             case 5:
                 return False
         
