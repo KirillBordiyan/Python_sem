@@ -1,6 +1,5 @@
 from database import *
 from view import *
-# общая менюшка пользователя
 
 def main():
     while True:
@@ -26,6 +25,7 @@ def main():
                 new_tel = input_tel("обновить телефон: ")
                 change_data(id, new_name, new_date, new_tel)
                 sort()
+                show_all()
             case 4:
                 show_all()
                 delete_id = input_id("id для удаления: ")
@@ -33,50 +33,4 @@ def main():
             case 5:
                 return False
         
-        
-
 main()
-
-
-
-
-
-
-
-
-
-
-
-
-# from database import*
-# from view import*
-
-# def main():
-#     while True:
-#         num = input_num()
-#         match num:
-#             case 1:
-#                 name = input_name()
-#                 write_name(name)
-#                 print("Успешно записано \n")
-#             case 2:
-#                 s = input_search()
-#                 search_name(s)
-#                 print("Успешно найдено \n")
-#             case 3:
-#                 name = input_name()
-#                 write_name(name)
-#                 print("Успешно удалено \n")
-#             case 4:
-#                 name = input_name()
-#                 write_name(name)
-#                 print("Успешно найдено \n")
-#             case 5:
-#                 name = input_name()
-#                 write_name(name)
-#                 print("Успешно переместил \n")
-#             case 6:
-#                 print("Выход")
-#                 return()
-
-# main()
